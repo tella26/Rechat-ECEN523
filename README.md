@@ -1,4 +1,4 @@
-This is a [LlamaIndex](https://www.llamaindex.ai/) project bootstrapped with [`create-llama`](https://github.com/run-llama/LlamaIndexTS/tree/main/packages/create-llama).
+This is a [LlamaIndex](https://www.llamaindex.ai/) project for the Research Assistant work in ECEN 523 (NLP), Santa Clara University, Santa Clara, CA
 
 ## Getting Started
 
