@@ -8,9 +8,11 @@ export function getQdrantClient() {
     throw new Error("QDRANT_URL environment variable is required");
   }
   const apiKey = process.env?.QDRANT_API_KEY;
+  console.log(url)
   return new QdrantClient({
     url,
     apiKey,
+    timeout: 60000
   });
 }
 
