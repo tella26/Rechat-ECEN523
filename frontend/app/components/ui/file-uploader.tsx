@@ -11,7 +11,7 @@ export interface FileUploaderProps {
     fileSizeLimit?: number;
     allowedExtensions?: string[];
     checkExtension?: (extension: string) => string | null;
-    disabled: boolean;
+    disabled?: boolean;
   };
   onFileUpload: (file: File) => Promise<void>;
   onFileError?: (errMsg: string) => void;
@@ -33,7 +33,7 @@ export default function FileUploader({
   const defaultCheckExtension = (extension: string) => {
     if (allowedExtensions && !allowedExtensions.includes(extension)) {
       return `Invalid file type. Please select a file with one of these formats: ${allowedExtensions!.join(
-        ",",
+        ","
       )}`;
     }
     return null;
@@ -69,7 +69,7 @@ export default function FileUploader({
 
     if (isFileSizeExceeded(file)) {
       return onFileUploadError(
-        `File size exceeded. Limit is ${fileSizeLimit / 1024 / 1024} MB`,
+        `File size exceeded. Limit is ${fileSizeLimit / 1024 / 1024} MB`
       );
     }
 
@@ -77,7 +77,7 @@ export default function FileUploader({
   };
 
   return (
-    <div className="self-stretch">
+    <div className="flex flex-col items-center justify-center">
       <input
         type="file"
         id={inputId}
@@ -89,15 +89,18 @@ export default function FileUploader({
       <label
         htmlFor={inputId}
         className={cn(
-          buttonVariants({ variant: "secondary", size: "icon" }),
+          buttonVariants({ variant: "secondary", size: "lg" }),
           "cursor-pointer",
-          uploading && "opacity-50",
+          uploading && "opacity-50"
         )}
       >
         {uploading ? (
           <Loader2 className="h-4 w-4 animate-spin" />
         ) : (
-          <Paperclip className="-rotate-45 w-4 h-4" />
+          <div className="flex flex-col items-center">
+            <Paperclip className="-rotate-45 w-6 h-6 mb-2" />
+            <span></span>
+          </div>
         )}
       </label>
     </div>
