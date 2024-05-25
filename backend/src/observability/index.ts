@@ -3,7 +3,7 @@ import * as LlamaIndex from "llamaindex";
 
 export const initObservability = () => {
   traceloop.initialize({
-    appName: "llama-app",
+    appName: "rechat-app",
     disableBatch: true,
     instrumentModules: {
       llamaIndex: LlamaIndex,

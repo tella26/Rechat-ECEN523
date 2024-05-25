@@ -13,12 +13,12 @@ export interface FileUploaderProps {
     checkExtension?: (extension: string) => string | null;
     disabled?: boolean;
   };
-  onFileUpload: (file: File) => Promise<void>;
+  onFileUpload?: (file: File) => Promise<void>;
   onFileError?: (errMsg: string) => void;
 }
 
 const DEFAULT_INPUT_ID = "fileInput";
-const DEFAULT_FILE_SIZE_LIMIT = 1024 * 1024 * 50; // 50 MB
+const DEFAULT_FILE_SIZE_LIMIT = 1024 * 1024; // 1MB
 
 export default function FileUploader({
   config,
@@ -73,7 +73,31 @@ export default function FileUploader({
       );
     }
 
-    await onFileUpload(file);
+    // Create form data
+    const formData = new FormData();
+    formData.append("file", file);
+
+    // Send the file to the backend
+    try {
+      const response = await fetch(process.env.NEXT_PUBLIC_CHAT_API + '/upload', {
+        method: "POST",
+        body: formData,
+      });
+
+      if (!response.ok) {
+        throw new Error(`Failed to upload file: ${response.statusText}`);
+      }
+
+      const data = await response.json();
+      console.log("File uploaded successfully:", data);
+
+      // Call onFileUpload callback if provided
+      if (onFileUpload) {
+        await onFileUpload(file);
+      }
+    } catch (error) {
+      onFileUploadError(error.message);
+    }
   };
 
   return (

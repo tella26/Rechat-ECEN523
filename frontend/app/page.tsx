@@ -68,7 +68,7 @@ export default function Home() {
             {!fileUploaded ? (
               <>
                 <p className="text-lg font-large">
-                  Please upload <b>paper or book</b> files to use the Rechat - Research Chat
+                  Please upload <b>paper or book</b> files to use the Rechat - Research Chat. <b>1MB Limit file upload</b>
                 </p>
                 <FileUploader
                   config={{ disabled: false }}
@@ -79,7 +79,7 @@ export default function Home() {
             ) : (
               <div className="flex flex-col items-center gap-4">
                 <p className="text-lg font-large">
-                  Please upload <b> bibliography</b> files, otherwise click Continue
+                  Please upload <b> bibliography</b> files, otherwise click Continue. <b>1MB Limit file upload</b>
                 </p>
                 <div className="flex items-center gap-x-4">
                   <FileUploader
