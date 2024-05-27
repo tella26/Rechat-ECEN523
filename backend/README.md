@@ -5,6 +5,22 @@ First, install the dependencies:
 ```
 npm install
 ```
+Script to delete the points in qdrant DB:
+```
+POST /collections/{collection_name}/points/delete
+{
+    "filter": {
+        "must": [
+            {
+                "key": "color",
+                "match": {
+                    "value": "red"
+                }
+            }
+        ]
+    }
+}
+```
 
 Second, generate the embeddings of the documents in the `./data` directory (if this folder exists - otherwise, skip this step):
 
