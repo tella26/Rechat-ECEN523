@@ -60,7 +60,7 @@ function initOllama() {
     model: process.env.MODEL ?? "",
   });
   Settings.embedModel = new OllamaEmbedding({
-    model: process.env.EMBEDDING_MODEL ?? "llama3:8b",
+    model: process.env.EMBEDDING_MODEL,
     dimensions: process.env.EMBEDDING_DIM
     ? parseInt(process.env.EMBEDDING_DIM)
     : undefined,
