@@ -11,7 +11,7 @@ const convertMessageContent = (
 ): MessageContent => {
   if (!imageUrl) return textMessage;
   return [
-    {
+    {   
       type: "text",
       text: textMessage,
     },

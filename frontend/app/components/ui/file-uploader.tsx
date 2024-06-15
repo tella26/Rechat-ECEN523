@@ -95,7 +95,7 @@ export default function FileUploader({
       if (onFileUpload) {
         await onFileUpload(file);
       }
-    } catch (error) {
+    } catch (error: any) {
       onFileUploadError(error.message);
     }
   };

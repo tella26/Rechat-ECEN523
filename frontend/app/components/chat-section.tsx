@@ -39,7 +39,7 @@ export default function ChatSection() {
     setSelectedSection(section);
   };
 
-  const handleChatSubmit = (e: React.FormEvent) => {
+  const handleChatSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     handleSubmit(e);
     setChatData((prev) => ({
