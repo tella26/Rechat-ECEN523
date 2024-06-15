@@ -1,6 +1,15 @@
 ## Final project for ECEN 523 (NLP), Santa Clara University, Santa Clara, CA.
 ## Rechat: Research chat assistant
 
+
+![alt text](frontend/assets/landing-page.png)
+
+![alt text](frontend/assets/working-demo.png)
+
+### We are trying to deploy this application on https://ecen523.azurewebsites.net/
+But it is unstable right now. Instead we suggest to build the project locally on your machine using the instructions below.
+
+
 Steps to setup Rechat and Getting started:
 
 Install and setup Ollama:
