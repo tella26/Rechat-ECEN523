@@ -66,7 +66,7 @@ export default function ChatInput(
         <Input
           autoFocus
           name="message"
-          placeholder="Type a message, click send and click bar space"
+          placeholder="Type a message, click send and press space bar (while cursor is in the message box)"
           className="flex-1"
           value={props.input}
           onChange={props.handleInputChange}
