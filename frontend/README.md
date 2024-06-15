@@ -5,14 +5,19 @@ First, install the dependencies:
 ```
 npm install
 ```
+Second, Add .env file in the ./frontend/ folder
+```
+# The backend API for chat endpoint.
+NEXT_PUBLIC_CHAT_API=http://localhost:8000/api/chat
+```
 
-Second, generate the embeddings of the documents in the `./data` directory (if this folder exists - otherwise, skip this step):
+Third, generate the embeddings of the documents in the `./data` directory (if this folder exists - otherwise, skip this step):
 
 ```
 npm run generate
 ```
 
-Third, run the development server:
+Fourth, run the development server:
 
 ```
 npm run dev
